@@ -626,8 +626,8 @@ img {
 
   .videos {
     max-width: 100%;
-    width: 100%;
-    height: 100%;
+    width: 300px;
+    height: 400px;
   }
 
   .container__movie-data {
@@ -638,7 +638,7 @@ img {
 
   .container__movie-similar {
     max-width: 100%;
-    width: 500px;
+    width: 320px;
   }
 
   .carousel__movie {

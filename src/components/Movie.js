@@ -3,6 +3,7 @@ import { Link, useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 import Header from "./Header";
 import ReactPlayer from "react-player";
+import Footer from "./Footer";
 
 const Movie = () => {
   const location = useLocation();
@@ -135,18 +136,18 @@ const Movie = () => {
               />
               <div className="movie__data">
                 <div className="movie__data-genre">
-                  <p>GÉNEROS: </p>
+                  <h4>GÉNEROS: </h4>
                   {movData.genres?.map((mov) => (
-                    <p key={mov.name}>{mov.name},</p>
+                    <p key={mov.name}> {mov.name} - </p>
                   ))}
                 </div>
                 <div className="movie__data-duration">
-                  <p>DURACIÓN: {MovieDuration} hrs.</p>
+                  <h4>DURACIÓN: {MovieDuration} hrs.</h4>
                 </div>
                 <div className="movie__data-cast">
-                  <p>CAST: </p>
+                  <h4>CAST: </h4>
                   {movCredits.cast?.slice(0, 5)?.map((mov) => (
-                    <p key={mov.cast_id}> {mov.name},</p>
+                    <p key={mov.cast_id}> {mov.name} - </p>
                   ))}
                 </div>
               </div>
@@ -217,6 +218,7 @@ const Movie = () => {
           </div>
         </section>
       )}
+      <Footer />
     </div>
   );
 };

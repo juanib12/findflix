@@ -327,6 +327,16 @@ img {
 .container__center-img {
   margin-left: 30px;
   margin-top: 30px;
+  transform-origin: center;
+  transition: 450ms all;
+}
+
+.container__center-img img{
+  border-radius: 7px;
+}
+
+.container__center-img:hover{
+  transform: scale(1.1);
 }
 
 .watch_provider {
@@ -391,6 +401,11 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: left;
+  align-items: center;
+}
+
+.movie__data-genre h4{
+  margin-right: 5px;
 }
 
 .movie__data-cast {
@@ -399,6 +414,10 @@ img {
   justify-content: left;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.movie__data-cast h4{
+  margin-right: 5px;
 }
 
 .container__movie-similar {
@@ -508,6 +527,46 @@ img {
 
 .footer_links:hover {
   color: #fff;
+}
+
+.carousel_providers{
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  height: 180px;
+  margin-bottom: 50px;
+}
+
+.carousel__container_providers{
+  white-space: nowrap;
+  margin: 50px 0px;
+}
+
+.carousel__item_providers{
+  border-radius: 7px;
+  overflow: hidden;
+  margin-right: 5px;
+  display: inline-block;
+  cursor: pointer;
+  transition: 450ms all;
+  transform-origin: center;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  max-width: 200px;
+  margin-left: 10px;
+}
+
+.carousel__card_providers img{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.carousel__item_providers:hover{
+  background-image: linear-gradient(to left, #211c23 0%, #21d4fd 100%);
+  transition: 450ms all;
+  transform: scale(1.1);
 }
 
 @media screen and (max-width: 767px) {
@@ -622,6 +681,7 @@ img {
     width: 100%;
     max-height: 100%;
     height: 100%;
+
   }
 
   .videos {

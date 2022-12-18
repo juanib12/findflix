@@ -4,18 +4,19 @@ import axios from "axios";
 import Footer from "./Footer";
 import Header from "./Header";
 
-const TiposPeliculas = () => {
+const FilterByProvider = () => {
   const location = useLocation();
   const { id } = useParams();
 
-  let currenPage = 1;
   const [pelis, setPelis] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const tiposPelis = () => {
+  let currenPage = 1;
+
+  const filterProvider = () => {
     const options = {
       method: "GET",
-      url: `https://api.themoviedb.org/3/movie/${id}?api_key=01864e118c53cc6ab3c40e90d03443b0&language=en-US&page=${currenPage}`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=01864e118c53cc6ab3c40e90d03443b0&language=en-US&page=${currenPage}&with_watch_providers=${id}&watch_region=AR`,
     };
     setLoading(true);
     axios
@@ -30,15 +31,14 @@ const TiposPeliculas = () => {
   };
 
 
+
   useEffect(() => {
     const newId = location.state?.id;
     if (newId) {
       window.location.reload(true);
     }
-    tiposPelis();
+    filterProvider();
   }, [location]);
-
-
 
   return (
     <>
@@ -68,4 +68,4 @@ const TiposPeliculas = () => {
   );
 };
 
-export default TiposPeliculas;
+export default FilterByProvider;

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const MoviesByGenre = () => {
   const location = useLocation();
@@ -9,10 +10,13 @@ const MoviesByGenre = () => {
   const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  let currenPage = 1;
+  
+
   const moviesbygenre = () => {
     const options = {
       method: "GET",
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=01864e118c53cc6ab3c40e90d03443b0&language=en-US&with_genres=${id}`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=01864e118c53cc6ab3c40e90d03443b0&language=en-US&with_genres=${id}&page=${currenPage}`,
     };
     setLoading(true);
     axios
@@ -25,6 +29,8 @@ const MoviesByGenre = () => {
         console.log(err);
       });
   };
+
+
 
   useEffect(() => {
     const newId = location.state?.id;
@@ -55,6 +61,7 @@ const MoviesByGenre = () => {
               </Link>
             ))}
           </div>
+          <Footer />
         </div>
       )}
     </>

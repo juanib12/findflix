@@ -23,7 +23,7 @@ const Peliculas = ({ query }) => {
       });
   }, []);
 
-  console.log(movie)
+  // console.log(movie);
 
   return (
     <section className="carousel">

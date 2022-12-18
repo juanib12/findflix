@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 import Generos from "./Generos";
+import Footer from "./Footer";
 
 const Search = () => {
   const [search, setSearch] = useState([]);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
+
 
   const searchMovie = (e) => {
     e.preventDefault();
@@ -26,6 +28,7 @@ const Search = () => {
         console.log(err);
       });
   };
+
 
   return (
     <>
@@ -65,6 +68,7 @@ const Search = () => {
               ))}
             </div>
           )}
+          <Footer />
         </div>
       )}
     </>

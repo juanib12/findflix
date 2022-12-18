@@ -8,6 +8,7 @@ import Movie from "./components/Movie";
 import Search from "./components/Search";
 import TiposPeliculas from "./components/TiposPeliculas";
 import MoviesByGenre from "./components/MoviesByGenre";
+import FilterByProvider from "./components/FilterByProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,6 +20,7 @@ root.render(
         <Route path="/search" element={<Search />} />
         <Route path="/peliculas/:id" element={<TiposPeliculas />} />
         <Route path="/movies_by_genre/:id" element={<MoviesByGenre />} />
+        <Route path="/filterbyprovider/:id" element={<FilterByProvider />}/>
       </Routes>
     </React.StrictMode>
   </BrowserRouter>

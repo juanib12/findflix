@@ -8,7 +8,7 @@ const TiposPeliculas = () => {
   const location = useLocation();
   const { id } = useParams();
 
-  let currenPage = 1;
+  const [currenPage, setCurrenPage] = useState(1);
   const [pelis, setPelis] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -29,7 +29,6 @@ const TiposPeliculas = () => {
       });
   };
 
-
   useEffect(() => {
     const newId = location.state?.id;
     if (newId) {
@@ -38,7 +37,7 @@ const TiposPeliculas = () => {
     tiposPelis();
   }, [location]);
 
-
+  console.log(currenPage);
 
   return (
     <>
@@ -49,6 +48,14 @@ const TiposPeliculas = () => {
         </div>
       ) : (
         <div className="container bd-grid">
+          {id === "popular" ? (
+            <h3>Las más vistas</h3>
+          ) : id === "top_rated" ? (
+            <h3>Las más valoradas</h3>
+          ) : id === "upcoming" ? (
+            <h3>Proximamente</h3>
+          ) : null}
+          <div className="filter-container"></div>
           <div className="container__center">
             {pelis.map((mov) => (
               <Link to={`/producto/${mov.id}`}>

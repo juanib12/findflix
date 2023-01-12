@@ -8,10 +8,10 @@ const MoviesByGenre = () => {
   const location = useLocation();
   const { id } = useParams();
   const [movie, setMovie] = useState([]);
+  const [listgenres, setListGenres] = useState([]);
   const [loading, setLoading] = useState(false);
 
   let currenPage = 1;
-  
 
   const moviesbygenre = () => {
     const options = {
@@ -30,7 +30,20 @@ const MoviesByGenre = () => {
       });
   };
 
-
+  const listaGenres = () => {
+    const options = {
+      method: "GET",
+      url: `https://api.themoviedb.org/3/genre/movie/list?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
+    };
+    axios
+      .request(options)
+      .then((res) => {
+        setListGenres(res.data.genres);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     const newId = location.state?.id;
@@ -38,7 +51,12 @@ const MoviesByGenre = () => {
       window.location.reload(true);
     }
     moviesbygenre();
+    listaGenres();
   }, [location]);
+
+  const GenreFilterById = listgenres.filter((x) => x.id == id);
+
+  console.log(GenreFilterById);
 
   return (
     <>
@@ -49,6 +67,9 @@ const MoviesByGenre = () => {
         </div>
       ) : (
         <div className="container bd-grid">
+          {GenreFilterById.map((x) => (
+            <h2 key={x.id}>{x.name}</h2>
+          ))}
           <div className="container__center">
             {movie.map((mov) => (
               <Link to={`/producto/${mov.id}`}>

@@ -39,7 +39,7 @@ const Series = ({ query }) => {
             <h3>Proximamente en Series</h3>
           ) : null}
           {movie.map((mov) => (
-            <Link to={`/producto/${mov.id}`}>
+            <Link to={`/serie/${mov.id}`}>
               <div className="carousel__item" key={mov.id}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}

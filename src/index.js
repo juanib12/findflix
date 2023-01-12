@@ -9,6 +9,7 @@ import Search from "./components/Search";
 import TiposPeliculas from "./components/TiposPeliculas";
 import MoviesByGenre from "./components/MoviesByGenre";
 import FilterByProvider from "./components/FilterByProvider";
+import Serie from "./components/Serie";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,6 +22,7 @@ root.render(
         <Route path="/peliculas/:id" element={<TiposPeliculas />} />
         <Route path="/movies_by_genre/:id" element={<MoviesByGenre />} />
         <Route path="/filterbyprovider/:id" element={<FilterByProvider />}/>
+        <Route path="/serie/:id" element={<Serie />}/>
       </Routes>
     </React.StrictMode>
   </BrowserRouter>

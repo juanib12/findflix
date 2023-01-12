@@ -10,6 +10,7 @@ const FilterByProvider = () => {
 
   const [pelis, setPelis] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [listProv, setListProv] = useState([])
 
   let currenPage = 1;
 
@@ -30,6 +31,26 @@ const FilterByProvider = () => {
       });
   };
 
+  const listaProviders = () => {
+    const options = {
+      method: "GET",
+      url: `https://api.themoviedb.org/3/watch/providers/movie?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES&watch_region=AR`,
+    };
+    axios
+      .request(options)
+      .then((res) => {
+        setListProv(res.data.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const ProvFilterById = listProv.filter((x) => x.provider_id == id);
+
+
+  console.log(ProvFilterById)
+
 
 
   useEffect(() => {
@@ -38,6 +59,7 @@ const FilterByProvider = () => {
       window.location.reload(true);
     }
     filterProvider();
+    listaProviders()
   }, [location]);
 
   return (
@@ -49,6 +71,9 @@ const FilterByProvider = () => {
         </div>
       ) : (
         <div className="container bd-grid">
+          {ProvFilterById.map((x) => (
+            <h2 key={x.provider_id}>{x.provider_name}</h2>
+          ))}
           <div className="container__center">
             {pelis.map((mov) => (
               <Link to={`/producto/${mov.id}`}>

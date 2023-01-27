@@ -6,17 +6,10 @@ import { useProviders } from "../hooks/useProviders";
 const FilterByProvider = () => {
   const { id } = useParams();
 
-  const {
-    PelisAndSeries,
-    loading,
-    listProv,
-    filterProviderMovie,
-    filterProviderSerie,
-    listaProviders,
-  } = useProviders(id);
+  const { pelis, loading, listProv, filterProvider, listaProviders } =
+    useProviders(id);
 
   const ProvFilterById = listProv.filter((x) => x.provider_id == id);
-
 
   return (
     <>
@@ -31,7 +24,7 @@ const FilterByProvider = () => {
             <h2 key={x.provider_id}>{x.provider_name}</h2>
           ))}
           <div className="container__center">
-            {PelisAndSeries.map((mov) => (
+            {pelis.map((mov) => (
               <Link to={`/producto/${mov.id}`}>
                 <div key={mov.id} className="container__center-img">
                   <img

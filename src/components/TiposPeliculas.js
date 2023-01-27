@@ -1,43 +1,11 @@
-import { useEffect, useState } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
-import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
+import { useMovie } from "../hooks/useMovie";
 
 const TiposPeliculas = () => {
-  const location = useLocation();
   const { id } = useParams();
-
-  const [currenPage, setCurrenPage] = useState(1);
-  const [pelis, setPelis] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const tiposPelis = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/movie/${id}?api_key=01864e118c53cc6ab3c40e90d03443b0&language=en-US&page=${currenPage}`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then((res) => {
-        setPelis(res.data.results);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    const newId = location.state?.id;
-    if (newId) {
-      window.location.reload(true);
-    }
-    tiposPelis();
-  }, [location]);
-
-  console.log(currenPage);
+  const { movie, loading } = useMovie(null, id, "movie");
 
   return (
     <>
@@ -57,12 +25,12 @@ const TiposPeliculas = () => {
           ) : null}
           <div className="filter-container"></div>
           <div className="container__center">
-            {pelis.map((mov) => (
+            {movie.map((mov) => (
               <Link to={`/producto/${mov.id}`}>
                 <div key={mov.id} className="container__center-img">
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
-                    className="item-img"
+                    className="pelis_img"
                   />
                 </div>
               </Link>

@@ -49,7 +49,6 @@
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-
   width: 5px;
   height: 13px;
 }
@@ -103,6 +102,13 @@ img {
 
 /*===== LAYOUT =====*/
 .bd-grid {
+  max-width: 1280px;
+  display: grid;
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+}
+
+.grid-bd {
   max-width: 1280px;
   display: grid;
   margin-left: var(--mb-2);
@@ -206,7 +212,6 @@ img {
   cursor: pointer;
 }
 
-
 .container {
   position: relative;
   top: 50px;
@@ -221,12 +226,10 @@ img {
   margin-bottom: 20px;
 }
 
-
 .carousel__container {
   white-space: nowrap;
   margin: 70px 0px;
 }
-
 
 .carousel__item {
   border-radius: 7px;
@@ -279,7 +282,6 @@ img {
   padding: 20px;
 }
 
-
 .container__movie {
   background-image: linear-gradient(to top, #2e2e2e 0%, #000000 100%);
   padding: 20px;
@@ -288,7 +290,6 @@ img {
   flex-direction: row;
   align-items: flex-start;
   height: 100%;
-
 }
 
 .container__movie img {
@@ -313,15 +314,20 @@ img {
   position: relative;
   display: flex;
   flex-direction: column;
-
 }
 
 .container__center {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: left;
   flex-wrap: wrap;
+}
+
+.pelis_img {
+  position: relative;
+  width: 150px;
+  height: 250px;
 }
 
 .container__center-img {
@@ -331,11 +337,11 @@ img {
   transition: 450ms all;
 }
 
-.container__center-img img{
+.container__center-img img {
   border-radius: 7px;
 }
 
-.container__center-img:hover{
+.container__center-img:hover {
   transform: scale(1.1);
 }
 
@@ -404,7 +410,7 @@ img {
   align-items: center;
 }
 
-.movie__data-genre h4{
+.movie__data-genre h4 {
   margin-right: 5px;
 }
 
@@ -416,7 +422,7 @@ img {
   flex-wrap: wrap;
 }
 
-.movie__data-cast h4{
+.movie__data-cast h4 {
   margin-right: 5px;
 }
 
@@ -455,7 +461,6 @@ img {
   margin-top: 10px;
   position: relative;
   margin-bottom: 150px;
-
 }
 
 .carousel__container_genres {
@@ -466,7 +471,6 @@ img {
   flex-wrap: wrap;
   width: 1300px;
   height: 500px;
-
 }
 
 .carousel__item_genres {
@@ -488,7 +492,6 @@ img {
   text-align: center;
   transition: 450ms all;
   background-image: linear-gradient(to left, #261a2b 0%, #009bbe 100%);
-
 }
 
 .carousel__card_genres:hover {
@@ -529,7 +532,7 @@ img {
   color: #fff;
 }
 
-.carousel_providers{
+.carousel_providers {
   overflow-x: auto;
   overflow-y: hidden;
   position: relative;
@@ -537,12 +540,12 @@ img {
   margin-bottom: 50px;
 }
 
-.carousel__container_providers{
+.carousel__container_providers {
   white-space: nowrap;
   margin: 50px 0px;
 }
 
-.carousel__item_providers{
+.carousel__item_providers {
   border-radius: 7px;
   overflow: hidden;
   margin-right: 5px;
@@ -557,13 +560,13 @@ img {
   margin-left: 10px;
 }
 
-.carousel__card_providers img{
+.carousel__card_providers img {
   width: 50px;
   height: 50px;
   object-fit: cover;
 }
 
-.carousel__item_providers:hover{
+.carousel__item_providers:hover {
   background-image: linear-gradient(to left, #211c23 0%, #21d4fd 100%);
   transition: 450ms all;
   transform: scale(1.1);
@@ -605,7 +608,12 @@ img {
   }
 
   .carousel__card_genres {
-    width: 150px;
+    width: 250px;
+  }
+
+  .carousel__item_genres{
+    margin-left: 0px;
+    max-width: 100%;
   }
 
   .container__movie {
@@ -616,6 +624,8 @@ img {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    margin: 0px;
+    padding: 0px;
   }
 
   .center__movie {
@@ -623,6 +633,8 @@ img {
     height: 100%;
     display: flex;
     flex-direction: column;
+    margin: 0px;
+    padding: 5px;
   }
 
   .container__movie img {
@@ -642,11 +654,14 @@ img {
     justify-content: left;
   }
 
+  .movie__data-genre {
+    flex-direction: column;
+  }
 
   .carousel__movie {
     max-width: 100%;
     height: 100%;
-    width: 100%;
+    width: 300px;
   }
 
   .carousel__item__movie {
@@ -657,7 +672,6 @@ img {
   .contenedor {
     max-width: 100%;
     width: 100%;
-    padding: 0px;
     padding-top: 40px;
     height: 100%;
   }
@@ -681,7 +695,6 @@ img {
     width: 100%;
     max-height: 100%;
     height: 100%;
-
   }
 
   .videos {
@@ -698,12 +711,7 @@ img {
 
   .container__movie-similar {
     max-width: 100%;
-    width: 320px;
-  }
-
-  .carousel__movie {
     width: 100%;
-    height: 250px;
   }
 
   .footer {
@@ -718,9 +726,31 @@ img {
     font-size: 0.9rem;
   }
 
+  .grid-bd {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .pelis_img {
+    position: relative;
+    width: 250px;
+    height: 350px;
+  }
+
+  .container__center{
+    justify-content: center;
+  }
+
+  .container__center-img {
+    margin-left: 0px;
+    margin-top: 30px;
+    transform-origin: center;
+    transition: 450ms all;
+  }
+  
+  
+
 }
-
-
 
 @media screen and (min-width: 768px) {
   body {
@@ -752,10 +782,16 @@ img {
   .home {
     padding: 8rem 0 2rem;
   }
+  
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1280px) {
   .bd-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .grid-bd {
     margin-left: auto;
     margin-right: auto;
   }
@@ -763,4 +799,6 @@ img {
   .home {
     padding: 10rem 0 2rem;
   }
+
+  
 }

@@ -1,124 +1,21 @@
-import { useEffect, useState } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
-import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 import Header from "./Header";
 import ReactPlayer from "react-player";
 import Footer from "./Footer";
+import { useMovie } from "../hooks/useMovie";
 
 const Serie = () => {
-  const location = useLocation();
   const { id } = useParams();
-  const [movData, setMovData] = useState([]);
-  const [movCredits, setMovCredits] = useState([]);
-  const [movSimilar, setMovSimilar] = useState([]);
-  const [movWatchProv, setMovWatchProv] = useState([]);
-  const [movTrailers, setMovTrailers] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const serieData = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/tv/${id}?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovData(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
-  const serieCredits = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/tv/${id}/credits?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovCredits(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
-  const serieSimilar = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/tv/${id}/similar?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovSimilar(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
-  const serieWatchProv = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/tv/${id}/watch/providers?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovWatchProv(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
-  const serieTrailers = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/tv/${id}/videos?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovTrailers(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
-  useEffect(() => {
-    const newId = location.state?.id;
-    if (newId) {
-      window.location.reload(true);
-    }
-    serieData();
-    serieCredits();
-    serieSimilar();
-    serieWatchProv();
-    serieTrailers();
-  }, [location]);
-
-  const watchProvAR = movWatchProv.results?.AR;
-  // console.log(watchProvAR);
-  console.log(movTrailers);
-  console.log(movData);
-
-  let Duration = (movData?.runtime * 1) / 60;
-  const MovieDuration = Duration.toString().slice(0, 4);
+  const {
+    movData,
+    movCredits,
+    movSimilar,
+    movWatchProv,
+    movTrailers,
+    loading,
+    watchProvAR,
+    MovieDuration,
+  } = useMovie(id, null, "tv");
 
   return (
     <div>
@@ -208,7 +105,7 @@ const Serie = () => {
                   <div className="carousel__container__movie">
                     {movSimilar?.results?.map((mov) => (
                       <div className="carousel__item__movie" key={mov.id}>
-                        <Link to={`/producto/${mov.id}`}>
+                        <Link to={`/serie/${mov.id}`}>
                           <img
                             src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
                             className="item-img__movie"

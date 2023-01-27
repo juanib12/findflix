@@ -1,4 +1,3 @@
-import DiscoverMovie from "./DiscoverMovie";
 import Peliculas from "./Peliculas";
 import Series from "./Series";
 import WatchProviders from "./WatchProviders";
@@ -11,6 +10,7 @@ const Home = () => {
       <Peliculas query="top_rated"/>
       <Peliculas query="upcoming"/>
       <Series query="popular"/>
+      <Series query="top_rated"/>
     </div>
   );
 };

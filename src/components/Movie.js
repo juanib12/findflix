@@ -1,125 +1,22 @@
-import { useEffect, useState } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
-import axios from "axios";
+import { Link, useParams} from "react-router-dom";
 import Header from "./Header";
 import ReactPlayer from "react-player";
 import Footer from "./Footer";
+import { useMovie } from "../hooks/useMovie";
 
 const Movie = () => {
-  const location = useLocation();
   const { id } = useParams();
-  const [movData, setMovData] = useState([]);
-  const [movCredits, setMovCredits] = useState([]);
-  const [movSimilar, setMovSimilar] = useState([]);
-  const [movWatchProv, setMovWatchProv] = useState([]);
-  const [movTrailers, setMovTrailers] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const {
+    movData,
+    movCredits,
+    movSimilar,
+    movWatchProv,
+    movTrailers,
+    loading,
+    watchProvAR,
+    MovieDuration,
+  } = useMovie(id, null, "movie");
 
-  const movieData = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/movie/${id}?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovData(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
-  const movieCredits = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/movie/${id}/credits?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovCredits(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
-  const movieSimilar = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/movie/${id}/similar?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovSimilar(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
-  const movieWatchProv = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovWatchProv(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
-  const movieTrailers = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/movie/${id}/videos?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovTrailers(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-
-  useEffect(() => {
-    const newId = location.state?.id;
-    if (newId) {
-      window.location.reload(true);
-    }
-    movieData();
-    movieCredits();
-    movieSimilar();
-    movieWatchProv();
-    movieTrailers();
-  }, [location]);
-
-  const watchProvAR = movWatchProv.results?.AR;
-  // console.log(watchProvAR);
-  console.log(movTrailers)
-  // console.log(movData)
-
-  let Duration = (movData?.runtime * 1) / 60
-  const MovieDuration = Duration.toString().slice(0,4)
-  
   return (
     <div>
       <Header />
@@ -128,9 +25,9 @@ const Movie = () => {
           <div className="loading-spinner"></div>
         </div>
       ) : (
-        <section className="container bd-grid">
+        <section className="container grid-bd">
           <div key={movData.id} className="container__movie">
-            <div className="center__movie">
+            <div className="contenedor">
               <img
                 src={`https://image.tmdb.org/t/p/w500/${movData.poster_path}`}
               />
@@ -155,7 +52,7 @@ const Movie = () => {
             <div className="contenedor">
               <div className="container__movie-title">
                 <h2>{movData.title}</h2>
-                <h2>({movData?.release_date?.slice(0,4)})</h2>
+                <h2>({movData?.release_date?.slice(0, 4)})</h2>
               </div>
               {watchProvAR ? (
                 <div className="watch_provider">

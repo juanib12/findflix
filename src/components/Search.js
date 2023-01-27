@@ -10,7 +10,6 @@ const Search = () => {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
 
-
   const searchMovie = (e) => {
     e.preventDefault();
     const options = {
@@ -28,7 +27,6 @@ const Search = () => {
         console.log(err);
       });
   };
-
 
   return (
     <>
@@ -61,7 +59,7 @@ const Search = () => {
                   <div key={mov.id} className="container__center-img">
                     <img
                       src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
-                      className="item-img"
+                      className="pelis_img"
                     />
                   </div>
                 </Link>

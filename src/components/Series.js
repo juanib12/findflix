@@ -1,27 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useMovie } from "../hooks/useMovie";
 
 const Series = ({ query }) => {
-  const [movie, setMovie] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/tv/${query}?api_key=01864e118c53cc6ab3c40e90d03443b0&language=en-US&page=1`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then((res) => {
-        setMovie(res.data.results);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  const { movie, loading } = useMovie(null, query, "tv");
 
   return (
     <section className="carousel">

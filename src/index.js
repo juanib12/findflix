@@ -22,7 +22,7 @@ root.render(
         <Route path="/peliculas/:id" element={<TiposPeliculas />} />
         <Route path="/movies_by_genre/:id" element={<MoviesByGenre />} />
         <Route path="/filterbyprovider/:id" element={<FilterByProvider />}/>
-        <Route path="/serie/:id" element={<Serie />}/>
+        <Route forceRefresh={true} path="/serie/:id" element={<Serie />}/>
       </Routes>
     </React.StrictMode>
   </BrowserRouter>

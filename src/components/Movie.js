@@ -1,4 +1,4 @@
-import { Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Header from "./Header";
 import ReactPlayer from "react-player";
 import Footer from "./Footer";
@@ -17,6 +17,8 @@ const Movie = () => {
     MovieDuration,
   } = useMovie(id, null, "movie");
 
+  console.log(movData);
+
   return (
     <div>
       <Header />
@@ -28,9 +30,15 @@ const Movie = () => {
         <section className="container grid-bd">
           <div key={movData.id} className="container__movie">
             <div className="contenedor">
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${movData.poster_path}`}
-              />
+              <a
+                href={movData.homepage}
+                target="_blank"
+                style={{ textDecoration: "none" }}
+              >
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${movData.poster_path}`}
+                />
+              </a>
               <div className="movie__data">
                 <div className="movie__data-genre">
                   <h4>GÉNEROS: </h4>
@@ -46,6 +54,12 @@ const Movie = () => {
                   {movCredits.cast?.slice(0, 5)?.map((mov) => (
                     <p key={mov.cast_id}> {mov.name} - </p>
                   ))}
+                </div>
+                <div className="movie__data-puntaje">
+                  <h4>
+                    VALORACIÓN:{" "}
+                    {(movData.vote_average * 10).toString().slice(0, 2)}%
+                  </h4>
                 </div>
               </div>
             </div>
@@ -92,6 +106,8 @@ const Movie = () => {
                   <p>{movData.overview}</p>
                 </div>
               ) : null}
+
+
 
               <div className="container__movie-similar">
                 <h3>Contenido qué podría interesarte: </h3>

@@ -25,9 +25,9 @@ const Serie = () => {
           <div className="loading-spinner"></div>
         </div>
       ) : (
-        <section className="container bd-grid">
+        <section className="container grid-bd">
           <div key={movData.id} className="container__movie">
-            <div className="center__movie">
+            <div className="contenedor">
               <a
                 href={movData.homepage}
                 target="_blank"

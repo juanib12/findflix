@@ -78,11 +78,11 @@ const Serie = () => {
               ) : null}
 
               {movTrailers?.results ? (
-                <div className="movie__trailers">
+                <div key={movData.id} className="movie__trailers">
                   <h3>Trailers:</h3>
                   <div className="movie__trailers-videos">
                     {movTrailers.results?.map((mov) => (
-                      <div className="videos">
+                      <div key={mov.id} className="videos">
                         <ReactPlayer
                           url={`https://www.youtube.com/watch?v=${mov.key}`}
                         />
@@ -93,7 +93,7 @@ const Serie = () => {
               ) : null}
 
               {movData.overview ? (
-                <div className="container__movie-data">
+                <div key={movData.id} className="container__movie-data">
                   <h3>Sinópsis</h3>
                   <p>{movData.overview}</p>
                 </div>

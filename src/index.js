@@ -10,13 +10,19 @@ import TiposPeliculas from "./components/TiposPeliculas";
 import MoviesByGenre from "./components/MoviesByGenre";
 import FilterByProvider from "./components/FilterByProvider";
 import Serie from "./components/Serie";
+import { store } from "./store";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter forceRefresh={true}>
     <React.StrictMode>
       <Routes>
-        <Route exact path="/" element={<App />} />
+        <Route exact path="/" element={
+          <Provider store={store}>
+            <App />
+          </Provider>
+        } />
         <Route forceRefresh={true} path="/producto/:id" element={<Movie />} />
         <Route path="/search" element={<Search />} />
         <Route path="/peliculas/:id" element={<TiposPeliculas />} />

@@ -22,18 +22,20 @@ const MoviesByGenre = () => {
           {GenreFilterById.map((x) => (
             <h2 key={x.id}>{x.name}</h2>
           ))}
-          <div className="container__center">
+          <ul className="container__center">
             {movie.map((mov) => (
-              <Link to={`/producto/${mov.id}`}>
-                <div key={mov.id} className="container__center-img">
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
-                    className="pelis_img"
-                  />
-                </div>
-              </Link>
+              <li>
+                <Link to={`/producto/${mov.id}`}>
+                  <div key={mov.id} className="container__center-img">
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
+                      className="pelis_img"
+                    />
+                  </div>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
           <Footer />
         </div>
       )}

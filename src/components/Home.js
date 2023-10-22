@@ -1,17 +1,22 @@
 import Peliculas from "./Peliculas";
 import Series from "./Series";
 import WatchProviders from "./WatchProviders";
+import Hero from './Hero'
 
 const Home = () => {
   return (
-    <div className="container bd-grid">
-      <WatchProviders />
-      <Peliculas query="popular"/>
-      <Peliculas query="top_rated"/>
-      <Peliculas query="upcoming"/>
-      <Series query="popular"/>
-      <Series query="top_rated"/>
-    </div>
+    <>
+      <Hero />
+      <div className="container home bd-grid">
+        <WatchProviders />
+        <Peliculas query="now_playing" data_top={true}/>
+        <Peliculas query="popular"/>
+        <Peliculas query="top_rated"/>
+        <Peliculas query="upcoming"/>
+        <Series query="popular"/>
+        <Series query="top_rated"/>
+      </div>
+    </>
   );
 };
 

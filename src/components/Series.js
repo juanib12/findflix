@@ -14,23 +14,32 @@ const Series = ({ query }) => {
         </div>
       ) : (
         <div className="carousel__container">
-          {query === "popular" ? (
-            <h3>Series más vistas</h3>
-          ) : query === "top_rated" ? (
-            <h3>Series más valoradas</h3>
-          ) : query === "upcoming" ? (
-            <h3>Proximamente en Series</h3>
-          ) : null}
-          {movie.map((mov) => (
-            <Link to={`/serie/${mov.id}`}>
-              <div className="carousel__item" key={mov.id}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
-                  className="item-img"
-                />
-              </div>
+          <header className="carousel_header">
+            {query === "popular" ? (
+              <h3>Series más vistas</h3>
+            ) : query === "top_rated" ? (
+              <h3>Series más valoradas</h3>
+            ) : query === "upcoming" ? (
+              <h3>Proximamente</h3>
+            ) : query === "now_playing" ? (
+              <h3>Ya en cines!</h3>
+            ) : null}
+            <Link to={`/series/${query}`}>
+              <span>Ver M&aacute;s</span>
             </Link>
-          ))}
+          </header>
+          <div className="carousel__container">
+            {movie.map((mov) => (
+              <Link to={`/serie/${mov.id}`}>
+                <div className="carousel__item" key={mov.id}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
+                    className="item-img"
+                  />
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </section>

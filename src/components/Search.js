@@ -30,7 +30,7 @@ const Search = () => {
 
   return (
     <>
-      <Header />
+      <Header isSearch={true}/>
       {loading ? (
         <div className="spinner-container">
           <div className="loading-spinner"></div>
@@ -51,7 +51,7 @@ const Search = () => {
           </form>
 
           {search?.length === 0 ? (
-            <Generos />
+            <Generos/>
           ) : (
             <div className="container__center">
               {search.map((mov) => (

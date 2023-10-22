@@ -11,10 +11,9 @@ const WatchProviders = () => {
           <div className="loading-spinner"></div>
         </div>
       ) : (
-        <div className="container bd-grid">
+        <div className="container bd-grid providers">
+          <h3>Explorá por servicios de streaming</h3>
           <section className="carousel_providers">
-            <h3>Explorá por servicios de streaming</h3>
-
             <div className="carousel__container_providers">
               {listProv.map((prov) => (
                 <div

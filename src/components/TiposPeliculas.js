@@ -24,18 +24,20 @@ const TiposPeliculas = () => {
             <h3>Proximamente</h3>
           ) : null}
           <div className="filter-container"></div>
-          <div className="container__center">
+          <ul className="container__center">
             {movie.map((mov) => (
-              <Link to={`/producto/${mov.id}`}>
-                <div key={mov.id} className="container__center-img">
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
-                    className="pelis_img"
-                  />
-                </div>
-              </Link>
+              <li>
+                <Link to={`/producto/${mov.id}`}>
+                  <div key={mov.id} className="container__center-img">
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
+                      className="pelis_img"
+                    />
+                  </div>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
           <Footer />
         </div>
       )}

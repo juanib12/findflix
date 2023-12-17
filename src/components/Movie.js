@@ -49,7 +49,7 @@ const Movie = () => {
     <main className="movie_container">
       <Header />
 
-      <MovieHero movieID={id} isHome={false}/>
+      <MovieHero movieID={id} isHome={false} query="movie"/>
 
       <section className="container grid-bd first">
         <header className="hero_movie">

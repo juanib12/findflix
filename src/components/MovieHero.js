@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useMovie } from "../hooks/useMovie";
 import axios from "axios";
 
-const MovieHero = ({movieID, isHome}) => {
+const MovieHero = ({movieID, isHome, query}) => {
     const [movImages, setMovImages] = useState([])
     const {
         movData,
@@ -14,7 +14,7 @@ const MovieHero = ({movieID, isHome}) => {
     const movieImages = () => {
         const options = {
             method: "GET",
-            url: `https://api.themoviedb.org/3/movie/${movieID}/images?api_key=01864e118c53cc6ab3c40e90d03443b0&include_image_language=en`,
+            url: `https://api.themoviedb.org/3/${query}/${movieID}/images?api_key=01864e118c53cc6ab3c40e90d03443b0&include_image_language=en`,
         };
         axios
         .request(options)

@@ -4,40 +4,30 @@ const Header = ({isSearch}) => {
   return (
     <header className="header bd-grid">
       <div>
-        <Link to="/">
-          <a href="#" className="nav__logo">
-            FindFlix
-          </a>
+        <Link to="/" className="nav__logo">
+          FindFlix
         </Link>
       </div>
       <nav className="nav">
         <ul className="nav__list">
           <li className="nav__item">
-            <Link to="/">
-              <a href="#" className="nav__link">
-                Inicio
-              </a>
+            <Link to="/" className="nav__link">
+              Inicio
             </Link>
           </li>
           <li className="nav__item">
-            <Link to="/peliculas/top_rated">
-              <a href="" className="nav__link">
-                Mejor valoradas
-              </a>
+            <Link to="/peliculas/top_rated" className="nav__link">
+              Mejor valoradas
             </Link>
           </li>
           <li className="nav__item">
-            <Link to="/peliculas/popular">
-              <a href="" className="nav__link">
-                Popular
-              </a>
+            <Link to="/peliculas/popular" className="nav__link">
+              Popular
             </Link>
           </li>
           <li className="nav__item">
-            <Link to="/peliculas/upcoming">
-              <a href="" className="nav__link">
-                Proximamente
-              </a>
+            <Link to="/peliculas/upcoming" className="nav__link">
+              Proximamente
             </Link>
           </li>
         </ul>

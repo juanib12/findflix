@@ -25,8 +25,8 @@ const FilterByProvider = () => {
           ))}
           <div className="container__center">
             {pelis.map((mov) => (
-              <Link to={`/producto/${mov.id}`}>
-                <div key={mov.id} className="container__center-img">
+              <Link to={`/producto/${mov.id}`} key={mov.id}>
+                <div className="container__center-img">
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
                     className="pelis_img"

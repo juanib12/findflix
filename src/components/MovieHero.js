@@ -39,6 +39,7 @@ const MovieHero = ({movieID, isHome}) => {
                     className="hero" 
                     style={{backgroundImage:`linear-gradient(180deg, rgba(0, 0, 0, 0.42) 17.31%, #111 101.85%),
                     url(https://image.tmdb.org/t/p/original//${mov.backdrops[0]?.file_path})`}}
+                    key={mov.id}
                 >
                 {isHome == true ? (
                     <div>
@@ -50,7 +51,7 @@ const MovieHero = ({movieID, isHome}) => {
                             <li>{MovieDuration} hrs.</li>
                         </ul>
                         <span>{movData.overview}</span>  
-                        <button>Mas info</button>
+                        <em></em>
                     </div> 
                 ) : null}
                 </section>

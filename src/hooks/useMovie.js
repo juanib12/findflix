@@ -14,105 +14,117 @@ export const useMovie = (id, query, multi) => {
   const [movie, setMovie] = useState([]);
 
   const movieByQuery = (query) => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/${multi}/${query}?api_key=01864e118c53cc6ab3c40e90d03443b0&language=en-US&page=1`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then((res) => {
-        setMovie(res.data.results);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if(!id) {
+      const options = {
+        method: "GET",
+        url: `https://api.themoviedb.org/3/${multi}/${query}?api_key=01864e118c53cc6ab3c40e90d03443b0&language=en-US&page=1`,
+      };
+      setLoading(true);
+      axios
+        .request(options)
+        .then((res) => {
+          setMovie(res.data.results);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   const movieData = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/${multi}/${id}?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovData(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    if(id) {
+      const options = {
+        method: "GET",
+        url: `https://api.themoviedb.org/3/${multi}/${id}?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
+      };
+      setLoading(true);
+      axios
+        .request(options)
+        .then(function (response) {
+          setMovData(response.data);
+          setLoading(false);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
   };
 
   const movieCredits = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/${multi}/${id}/credits?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovCredits(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    if(id) {
+      const options = {
+        method: "GET",
+        url: `https://api.themoviedb.org/3/${multi}/${id}/credits?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
+      };
+      setLoading(true);
+      axios
+        .request(options)
+        .then(function (response) {
+          setMovCredits(response.data);
+          setLoading(false);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
   };
 
   const movieSimilar = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/${multi}/${id}/similar?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovSimilar(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    if(id) {
+      const options = {
+        method: "GET",
+        url: `https://api.themoviedb.org/3/${multi}/${id}/similar?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
+      };
+      setLoading(true);
+      axios
+        .request(options)
+        .then(function (response) {
+          setMovSimilar(response.data);
+          setLoading(false);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
   };
 
   const movieWatchProv = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/${multi}/${id}/watch/providers?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovWatchProv(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    if(id) {
+      const options = {
+        method: "GET",
+        url: `https://api.themoviedb.org/3/${multi}/${id}/watch/providers?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
+      };
+      setLoading(true);
+      axios
+        .request(options)
+        .then(function (response) {
+          setMovWatchProv(response.data);
+          setLoading(false);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
   };
 
   const movieTrailers = () => {
-    const options = {
-      method: "GET",
-      url: `https://api.themoviedb.org/3/${multi}/${id}/videos?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
-    };
-    setLoading(true);
-    axios
-      .request(options)
-      .then(function (response) {
-        setMovTrailers(response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    if(id) {
+      const options = {
+        method: "GET",
+        url: `https://api.themoviedb.org/3/${multi}/${id}/videos?api_key=01864e118c53cc6ab3c40e90d03443b0&language=es-ES`,
+      };
+      setLoading(true);
+      axios
+        .request(options)
+        .then(function (response) {
+          setMovTrailers(response.data);
+          setLoading(false);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
   };
 
   const watchProvAR = movWatchProv.results?.AR;

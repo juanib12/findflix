@@ -54,7 +54,7 @@ const Movie = () => {
       <section className="container grid-bd first">
         <header className="hero_movie">
           {movImages.map((mov) => (
-            <div>
+            <div key={mov.id}>
               <img src={`https://image.tmdb.org/t/p/w500//${mov.logos[0]?.file_path}`}/>  
               <ul>
                   <li>{movData.release_date?.slice(0, 4)}</li>
@@ -94,7 +94,7 @@ const Movie = () => {
           ) : null}
         </article>
         <footer>
-          <h4>Top Cast</h4>
+          <h4>Cast</h4>
           <ul className="movie__data-cast">
             {movCredits.cast?.slice(0, 7)?.map((mov) => (
               <li key={mov.cast_id}>  
@@ -117,7 +117,7 @@ const Movie = () => {
               <li className="movie__trailers">
                 <div className="movie__trailers-videos">
                   {movTrailers.results?.slice(0, 5)?.map((mov) => (
-                    <div className="videos">
+                    <div className="videos" key={mov.key}>
                       <ReactPlayer
                         url={`https://www.youtube.com/watch?v=${mov.key}`}
                       />

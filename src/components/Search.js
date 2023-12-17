@@ -45,7 +45,7 @@ const Search = () => {
                 onChange={(e) => setQuery(e.target.value)}
               />
               <div className="icon-search-2">
-                <i class="bx bx-search icon"></i>
+                <i className="bx bx-search icon"></i>
               </div>
             </div>
           </form>
@@ -55,8 +55,8 @@ const Search = () => {
           ) : (
             <div className="container__center">
               {search.map((mov) => (
-                <Link to={`/producto/${mov.id}`}>
-                  <div key={mov.id} className="container__center-img">
+                <Link to={`/producto/${mov.id}`} key={mov.id}>
+                  <div className="container__center-img">
                     <img
                       src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
                       className="pelis_img"

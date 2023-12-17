@@ -204,6 +204,10 @@ img {
   background: rgba(255, 255, 255, 0.90);
 }
 
+.hero em {
+  height: 5em;
+}
+
 /*===== NAV =====*/
 .nav {
   height: var(--header-height);

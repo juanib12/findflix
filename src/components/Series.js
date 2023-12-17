@@ -30,8 +30,8 @@ const Series = ({ query }) => {
           </header>
           <div className="carousel__container">
             {movie.map((mov) => (
-              <Link to={`/serie/${mov.id}`}>
-                <div className="carousel__item" key={mov.id}>
+              <Link to={`/serie/${mov.id}`} key={mov.id}>
+                <div className="carousel__item" >
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
                     className="item-img"

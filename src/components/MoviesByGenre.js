@@ -24,9 +24,9 @@ const MoviesByGenre = () => {
           ))}
           <ul className="container__center">
             {movie.map((mov) => (
-              <li>
+              <li key={mov.id}>
                 <Link to={`/producto/${mov.id}`}>
-                  <div key={mov.id} className="container__center-img">
+                  <div className="container__center-img">
                     <img
                       src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
                       className="pelis_img"

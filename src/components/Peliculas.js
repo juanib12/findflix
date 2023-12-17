@@ -53,8 +53,8 @@ const Peliculas = ({ query, data_top }) => {
 
           <div className="carousel__container">
           {!data_top && movie.map((mov) => (
-            <Link to={`/producto/${mov.id}`}>
-              <div className="carousel__item" key={mov.id}>
+            <Link to={`/producto/${mov.id}`} key={mov.id}>
+              <div className="carousel__item" >
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
                   className="item-img"
@@ -63,8 +63,8 @@ const Peliculas = ({ query, data_top }) => {
             </Link>
           ))}
           {data_top && moviesTop.map((mov, idx) => (
-            <Link to={`/producto/${mov.id}`}>
-              <div className="carousel__item" data-top={idx + 1} key={mov.id}>
+            <Link to={`/producto/${mov.id}`} key={mov.id}>
+              <div className="carousel__item" data-top={idx + 1}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
                   className="item-img"

@@ -38,12 +38,12 @@ const MovieHero = ({movieID, isHome}) => {
                 <section 
                     className="hero" 
                     style={{backgroundImage:`linear-gradient(180deg, rgba(0, 0, 0, 0.42) 17.31%, #111 101.85%),
-                    url(https://image.tmdb.org/t/p/original//${mov.backdrops[0]?.file_path})`}}
+                    url(https://image.tmdb.org/t/p/original//${mov?.backdrops[0]?.file_path})`}}
                     key={mov.id}
                 >
                 {isHome == true ? (
                     <div>
-                        <img src={`https://image.tmdb.org/t/p/w500//${mov.logos[0]?.file_path}`}/>   
+                        <img src={`https://image.tmdb.org/t/p/w500//${mov?.logos[0]?.file_path}`}/>   
                         <ul>
                             <li>{movData.release_date?.slice(0, 4)}</li>
                             <li>{movData.genres[0].name}</li>

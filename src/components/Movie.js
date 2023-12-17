@@ -43,7 +43,7 @@ const Movie = () => {
       movieImages()
   }, [])
 
-  console.log(movCredits, watchProvAR)
+  console.log(movCredits, watchProvAR, movImages)
 
   return (
     <main className="movie_container">
@@ -55,7 +55,7 @@ const Movie = () => {
         <header className="hero_movie">
           {movImages.map((mov) => (
             <div key={mov.id}>
-              <img src={`https://image.tmdb.org/t/p/w500//${mov.logos[0]?.file_path}`}/>  
+              <img src={`https://image.tmdb.org/t/p/w500//${mov?.logos[0]?.file_path}`}/>  
               <ul>
                   <li>{movData.release_date?.slice(0, 4)}</li>
                   <li>{movData.genres[0].name}</li>

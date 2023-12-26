@@ -1048,7 +1048,7 @@ img {
   [data-top] img{
     margin-left: 0;
     margin-top: 0;
-    width: 75%;
+    width: 100%;
     height: unset;
   }
 }

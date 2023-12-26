@@ -30,8 +30,6 @@ const MovieHero = ({movieID, isHome, query}) => {
         movieImages()
     }, [])
 
-    console.log(movData)
-
     return (
         <>
             {movImages.map((mov) => (

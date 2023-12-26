@@ -41,8 +41,6 @@ const Serie = () => {
       movieImages()
   }, [])
 
-  console.log(movCredits, watchProvAR, movImages)
-
   return (
     <main className="movie_container">
       <Header />

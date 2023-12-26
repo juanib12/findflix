@@ -8,7 +8,7 @@ const Hero = () => {
     return (
         <div>
             {movie.length > 0 ? (
-                <MovieHero movieID={movie[0]?.id} isHome={true}/>
+                <MovieHero movieID={movie[0]?.id} isHome={true} query="movie"/>
             ) : null}
         </div>
     )

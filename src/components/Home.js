@@ -14,6 +14,7 @@ const Home = () => {
         <Peliculas query="top_rated"/>
         <Peliculas query="upcoming"/>
         <Series query="popular"/>
+        <Series query="airing_today"/>
         <Series query="top_rated"/>
       </div>
     </>

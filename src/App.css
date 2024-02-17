@@ -404,6 +404,12 @@ img {
   object-fit: cover;
 }
 
+.item-img-upcoming {
+  width: 20em;
+  height: 100%;
+  object-fit: cover;
+}
+
 .carousel__container:hover .carousel__item:hover {
   transform: scale(1.1);
 }

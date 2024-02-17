@@ -16,7 +16,6 @@ const Serie = () => {
     movSimilar,
     movTrailers,
     watchProvAR,
-    MovieDuration,
   } = useMovie(id, null, "tv");
 
 

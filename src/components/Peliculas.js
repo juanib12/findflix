@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useMovie } from "../hooks/useMovie";
 
-import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMovies, getGenres } from "../store";
 
@@ -13,7 +12,6 @@ const Peliculas = ({ query, data_top }) => {
   const genres = useSelector((state) => state.netflix.genres);
   const genresLoaded = useSelector((state) => state.netflix.genresLoaded);
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -53,21 +51,23 @@ const Peliculas = ({ query, data_top }) => {
 
           <div className="carousel__container">
           {!data_top && movie.map((mov) => (
-            <Link to={`/producto/${mov.id}`} key={mov.id}>
+            <Link to={`/producto/${mov.id}/movie`} key={mov.id}>
               <div className="carousel__item" >
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
                   className="item-img"
+                  alt="img-movies"
                 />
               </div>
             </Link>
           ))}
           {data_top && moviesTop.map((mov, idx) => (
-            <Link to={`/producto/${mov.id}`} key={mov.id}>
+            <Link to={`/producto/${mov.id}/movie`} key={mov.id}>
               <div className="carousel__item" data-top={idx + 1}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
                   className="item-img"
+                  alt="img-movie"
                 />
               </div>
             </Link>

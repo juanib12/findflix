@@ -492,6 +492,16 @@ img {
   line-height: normal;
 }
 
+.movie_container .header-provider {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
+}
+
+.movie_container .header-provider select{
+  margin-left: auto;
+}
 
 .container__movie {
   background-image: linear-gradient(to top, #2e2e2e 0%, #000000 100%);
@@ -814,6 +824,33 @@ img {
   background-image: linear-gradient(to left, #211c23 0%, #21d4fd 100%);
   transition: 450ms all;
   transform: scale(1.1);
+}
+
+.filtros{
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+
+.filtros ul {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  background-color: #272727;
+  width: 100%;
+  border-radius: 0.5em;
+  border: 2px solid #3d3d3d;
+}
+
+.filtros select{
+  padding: 0.5em;
+  background-color: #272727;
+  color: white;
+  border-radius: 0.5em;
 }
 
 @media screen and (max-width: 767px) {

@@ -156,5 +156,6 @@ export const useMovie = (id, query, multi) => {
     watchProvAR,
     MovieDuration,
     movie,
+    setMovie,
   };
 };

@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
-import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useGenres } from "../hooks/useGenres";
@@ -30,6 +28,7 @@ const MoviesByGenre = () => {
                     <img
                       src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
                       className="pelis_img"
+                      alt="img-movies"
                     />
                   </div>
                 </Link>

@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Movie from "./components/Movie";
 import Search from "./components/Search";
 import TiposPeliculas from "./components/TiposPeliculas";
 import MoviesByGenre from "./components/MoviesByGenre";
@@ -12,6 +11,7 @@ import FilterByProvider from "./components/FilterByProvider";
 import Serie from "./components/Serie";
 import { store } from "./store";
 import { Provider } from "react-redux";
+import Producto from "./components/Producto";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,7 +23,7 @@ root.render(
             <App />
           </Provider>
         } />
-        <Route forceRefresh={true} path="/producto/:id" element={<Movie />} />
+        <Route forceRefresh={true} path="/producto/:id/:type" element={<Producto />} />
         <Route path="/search" element={<Search />} />
         <Route path="/peliculas/:id" element={<TiposPeliculas />} />
         <Route path="/movies_by_genre/:id" element={<MoviesByGenre />} />

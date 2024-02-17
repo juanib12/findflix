@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import Footer from "./Footer";
 import { useEffect, useState } from "react";
 import { useMovie } from "../hooks/useMovie";
 import axios from "axios";
@@ -28,6 +26,7 @@ const MovieHero = ({movieID, isHome, query}) => {
 
     useEffect(() => {
         movieImages()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -39,13 +38,14 @@ const MovieHero = ({movieID, isHome, query}) => {
                     url(https://image.tmdb.org/t/p/original//${mov?.backdrops[0]?.file_path})`}}
                     key={mov.id}
                 >
-                {isHome == true ? (
+                {isHome === true ? (
                     <div>
-                        <img src={`https://image.tmdb.org/t/p/w500//${mov?.logos[0]?.file_path}`}/>   
+                        <img src={`https://image.tmdb.org/t/p/w500//${mov?.logos[0]?.file_path}`} alt="hero-img"/>   
                         <ul>
                             <li>{movData.release_date?.slice(0, 4)}</li>
-                            <li>{movData.genres[0].name}</li>
-                            <li>{movData.genres[1].name}</li>
+                            {movData.genres ? movData.genres.slice(0,2).map((genre) => (
+                                <li key={genre.id}>{genre.name}</li>
+                            )) : null}
                             <li>{MovieDuration} hrs.</li>
                         </ul>
                         <span>{movData.overview}</span>  

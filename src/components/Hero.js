@@ -3,7 +3,7 @@ import MovieHero from "./MovieHero";
 
 const Hero = () => {
 
-    const { movie, loading } = useMovie(null, "popular", "movie");
+    const { movie } = useMovie(null, "popular", "movie");
 
     return (
         <div>

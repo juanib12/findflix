@@ -1,5 +1,3 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useMovie } from "../hooks/useMovie";
 
@@ -35,6 +33,7 @@ const Series = ({ query }) => {
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
                     className="item-img"
+                    alt="img-movies"
                   />
                 </div>
               </Link>

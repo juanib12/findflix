@@ -5,10 +5,7 @@ import { useProviders } from "../hooks/useProviders";
 
 const FilterByProvider = () => {
   const { id } = useParams();
-
-  const { pelis, loading, listProv, filterProvider, listaProviders } =
-    useProviders(id);
-
+  const { pelis, loading, listProv } = useProviders(id);
   const ProvFilterById = listProv.filter((x) => x.provider_id == id);
 
   return (
@@ -30,6 +27,7 @@ const FilterByProvider = () => {
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
                     className="pelis_img"
+                    alt="img-movies"
                   />
                 </div>
               </Link>

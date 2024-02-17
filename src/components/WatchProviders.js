@@ -24,6 +24,7 @@ const WatchProviders = () => {
                     <div className="carousel__card_providers">
                       <img
                         src={`https://image.tmdb.org/t/p/w200/${prov.logo_path}`}
+                        alt="img-movies"
                       />
                     </div>
                   </Link>

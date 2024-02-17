@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 import Generos from "./Generos";
@@ -55,11 +55,12 @@ const Search = () => {
           ) : (
             <div className="container__center">
               {search.map((mov) => (
-                <Link to={`/producto/${mov.id}`} key={mov.id}>
+                <Link to={`/producto/${mov.id}/${mov.media_type}`} key={mov.id}>
                   <div className="container__center-img">
                     <img
                       src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
                       className="pelis_img"
+                      alt="img-movies"
                     />
                   </div>
                 </Link>

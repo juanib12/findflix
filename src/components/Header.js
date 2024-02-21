@@ -17,19 +17,19 @@ const Header = ({isSearch}) => {
           </li>
           <li className="nav__item">
             <Link to="/peliculas/top_rated" className="nav__link">
-              Peliculas
+              Mejor valoradas
             </Link>
           </li>
           <li className="nav__item">
             <Link to="/peliculas/popular" className="nav__link">
-              Series
+              Popular
             </Link>
           </li>
-          {/* <li className="nav__item">
+          <li className="nav__item">
             <Link to="/peliculas/upcoming" className="nav__link">
               Proximamente
             </Link>
-          </li> */}
+          </li>
         </ul>
 
         {!isSearch ? (

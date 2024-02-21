@@ -91,7 +91,7 @@ const TiposPeliculas = () => {
           <ul className="container__center">
             {moviesFiltered.map((mov) => (
               <li key={mov.id}>
-                <Link to={`/producto/${mov.id}`}>
+                <Link to={`/producto/${mov.id}/movie`}>
                   <div className="container__center-img">
                     <img
                       src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}

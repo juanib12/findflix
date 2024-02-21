@@ -58,7 +58,7 @@ const Producto = () => {
                         {movData.genres ? movData.genres.slice(0,2).map((genre) => (
                         <li key={genre.id}>{genre.name}</li>
                         )) : null}
-                        <li>{type === "movie" ? MovieDuration + ' hrs.' : movData.number_of_seasons + ' Temporadas'}</li>
+                        <li>{type === "movie" ? MovieDuration : movData.number_of_seasons + ' Temporadas'}</li>
                     </ul>
                 </div> 
                 ))}

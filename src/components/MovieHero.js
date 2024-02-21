@@ -46,7 +46,7 @@ const MovieHero = ({movieID, isHome, query}) => {
                             {movData.genres ? movData.genres.slice(0,2).map((genre) => (
                                 <li key={genre.id}>{genre.name}</li>
                             )) : null}
-                            <li>{MovieDuration} hrs.</li>
+                            <li>{MovieDuration}</li>
                         </ul>
                         <span>{movData.overview}</span>  
                         <em></em>

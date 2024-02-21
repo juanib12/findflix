@@ -129,8 +129,12 @@ export const useMovie = (id, query, multi) => {
 
   const watchProvAR = movWatchProv.results?.AR;
 
-  let Duration = (movData?.runtime * 1) / 60;
-  const MovieDuration = Duration.toString().slice(0, 4);
+  let date = new Date();
+  let mins = (movData?.runtime / 60);
+
+  date.setHours(0,0,0,0);
+  date.setMinutes(date.getMinutes() + movData?.runtime);
+  const MovieDuration = date.getHours() + 'h ' + date.getMinutes() + 'm';
 
   useEffect(() => {
     const newId = location.state?.id;

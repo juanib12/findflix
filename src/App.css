@@ -719,11 +719,6 @@ img {
 }
 
 .carousel__container_genres {
-  /* display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap; */
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   width: 100%;

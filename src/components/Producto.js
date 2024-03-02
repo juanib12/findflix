@@ -10,6 +10,7 @@ import ReactPlayer from "react-player";
 const Producto = () => {
     const { id, type } = useParams();
     const {
+        loading,
         movData,
         movCredits,
         movSimilar,
@@ -40,9 +41,11 @@ const Producto = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    console.log(movData)
-    
-    return (
+    return loading ? (
+            <div className="spinner-container">
+                <div className="loading-spinner"></div>
+            </div>
+    ) : (
         <main className="movie_container">
             <Header />
 

@@ -11,6 +11,7 @@ const Serie = () => {
   const { id } = useParams();
 
   const {
+    loading,
     movData,
     movCredits,
     movSimilar,
@@ -38,11 +39,16 @@ const Serie = () => {
 
   useEffect(() => {
       movieImages()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   console.log(movData)
 
-  return (
+  return loading ? (
+    <div className="spinner-container">
+      <div className="loading-spinner"></div>
+    </div>
+  ) : (
     <main className="movie_container">
       <Header />
 

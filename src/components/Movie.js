@@ -13,6 +13,7 @@ const Movie = () => {
   const { id } = useParams();
 
   const {
+    loading,
     movData,
     movCredits,
     movSimilar,
@@ -43,9 +44,13 @@ const Movie = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  console.log(movData)
+  console.log(loading)
 
-  return (
+  return loading ? (
+      <div className="spinner-container">
+        <div className="loading-spinner"></div>
+      </div>
+  ) : (
     <main className="movie_container">
       <Header />
 
@@ -154,7 +159,7 @@ const Movie = () => {
     
       <Footer />
     </main>
-  );
+  )
 };
 
 export default Movie;

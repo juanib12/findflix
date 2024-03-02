@@ -5,6 +5,7 @@ import axios from "axios";
 const MovieHero = ({movieID, isHome, query}) => {
     const [movImages, setMovImages] = useState([])
     const {
+        loading,
         movData,
         MovieDuration,
     } = useMovie(movieID, null, "movie");
@@ -29,7 +30,11 @@ const MovieHero = ({movieID, isHome, query}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    return (
+    return loading ? (
+        <div className="spinner-container">
+            <div className="loading-spinner"></div>
+        </div>
+    ) : (
         <>
             {movImages.map((mov) => (
                 <section 

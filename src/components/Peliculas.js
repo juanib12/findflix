@@ -1,28 +1,8 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useMovie } from "../hooks/useMovie";
 
-import { useSelector, useDispatch } from "react-redux";
-import { fetchMovies, getGenres } from "../store";
-
 const Peliculas = ({ query, data_top }) => {
   const { movie, loading } = useMovie(null, query, "movie");
-
-  const movies = useSelector((state) => state.netflix.movies);
-  const genres = useSelector((state) => state.netflix.genres);
-  const genresLoaded = useSelector((state) => state.netflix.genresLoaded);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getGenres());
-  }, []);
-
-  useEffect(() => {
-    if (genresLoaded) {
-      dispatch(fetchMovies({ genres, type: "movie" }));
-    }
-  }, [genresLoaded]);
 
   const moviesTop = movie.slice(0, 10);
 

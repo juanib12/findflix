@@ -31,7 +31,7 @@ const Series = ({ query }) => {
                 <div className="carousel__item">
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
-                    className={query === "popular" ? "item-img-upcoming" : "item-img"}
+                    className={query === "top_rated" ? "item-img-upcoming" : "item-img"}
                     alt="img-movies"
                   />
                 </div>

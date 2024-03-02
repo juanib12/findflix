@@ -17,7 +17,6 @@ const TiposPeliculas = () => {
     let filter = [];
 
     if(type === 'genres') {
-      console.log('genres', value)
       filter = movie.filter(function(doc) {
         return doc.genre_ids.find(function(_doc) {
           return _doc == value;
@@ -26,18 +25,16 @@ const TiposPeliculas = () => {
     }
 
     if(type === 'date') {
-      console.log('date', value)
       filter = movie.filter(function(_doc) {
         return new Date(_doc.release_date).getFullYear() == value;
       })
     }
 
+    setMoviesFiltered(filter);
+    
     if(!value) {
-      console.log("entra")
       setMoviesFiltered(movie);
     }
-  
-    setMoviesFiltered(filter);
   }
  
   useEffect(() => {
